@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "Mail Attachment Holder",
+    "version": "1.0",
+    "description": "A simple mail Chrome extension.",
+    "permissions": ["tabs", "storage", "notifications"],
+    "host_permissions": [
+    "https://mail.google.com/*",
+    "https://outlook.live.com/*",
+    "https://mail.yahoo.com/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+    },
+    "icons": {
+      "48": "icon.png"
+    },
+    "content_scripts": [
+    {
+      "matches": [
+        "https://mail.google.com/*",
+        "https://outlook.live.com/*",
+        "https://mail.yahoo.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
+  
