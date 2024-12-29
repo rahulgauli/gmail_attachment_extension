@@ -3,7 +3,12 @@
     "name": "Mail Attachment Holder",
     "version": "1.0",
     "description": "A simple mail Chrome extension.",
-    "permissions": ["tabs", "storage", "notifications"],
+    "permissions": [
+      "identity", "tabs", 
+      "storage", "notifications",
+      "https://googleapis.com/*",
+      "identity.email"
+    ],
     "host_permissions": [
     "https://mail.google.com/*",
     "https://outlook.live.com/*",
@@ -28,6 +33,11 @@
       ],
       "js": ["content.js"]
     }
-  ]
+  ],
+  "oauth2": {
+    "client_id": "235811497805-8qbddeqbnhbuslqsaelgeaka2j19fegn.apps.googleusercontent.com.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/gmail.readonly"
+    ]
+  }
 }
-  
