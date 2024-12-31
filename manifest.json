@@ -1,13 +1,14 @@
 {
     "manifest_version": 3,
-    "name": "Mail Attachment Holder",
+    "name": "Mail Attachments Cabinet",
     "version": "1.0",
     "description": "A simple mail Chrome extension.",
     "permissions": [
-      "identity", "tabs", 
+      "scripting",
+      "identity", "activeTab", 
       "storage", "notifications",
-      "https://googleapis.com/*",
-      "identity.email"
+      "identity.email",
+      "https://www.googleapis.com/"
     ],
     "host_permissions": [
     "https://mail.google.com/*",
@@ -18,12 +19,12 @@
       "service_worker": "background.js"
     },
     "action": {
-      "default_popup": "popup.html",
-      "default_icon": "icon.png"
+      "default_popup": "popup/popup.html",
+      "default_icon": "images/icon-48.png"
     },
     "icons": {
-      "48": "icon.png"
-    },
+    "48": "images/icon-48.png"
+  },
     "content_scripts": [
     {
       "matches": [
@@ -31,7 +32,7 @@
         "https://outlook.live.com/*",
         "https://mail.yahoo.com/*"
       ],
-      "js": ["content.js"]
+      "js": ["scripts/content.js"]
     }
   ],
   "oauth2": {
