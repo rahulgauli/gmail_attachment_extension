@@ -3,15 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ManageAttachments</title>
-  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <title>Manage Attachments</title>
+  <style>
+    /* Basic styling for the popup */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 10px;
+      background-color: #f4f4f9;
+      max-width: 400px; /* Fit for a Chrome extension popup */
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.8em;
+      color: #333;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    /* Style for the email data container */
+    #email-data {
+      font-size: 1.2em;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      overflow-y: auto;
+      height: 300px;
+      border-top: 2px solid #ccc;
+      padding-top: 10px;
+    }
+
+    /* Individual email item styling */
+    .email-item {
+      background-color: #ffffff;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.3s;
+    }
+
+    .email-item:hover {
+      background-color: #f0f0f0;
+    }
+
+    .email-sender {
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    .email-subject {
+      font-style: italic;
+      color: #555;
+    }
+
+    /* Styling for no emails message */
+    .no-emails {
+      font-size: 1.2em;
+      color: #666;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
   <div>
-    <h1>eMail-Attachments</h1>
+    <h1>Attachments</h1>
     <ul id="email-data">
-    <script src="popup.js"></script>
+      <!-- Emails will be injected here by JavaScript -->
     </ul>
+    <div class="no-emails" id="no-emails-message">No emails collected yet.</div>
   </div>
+
+  <script src="popup.js"></script>
 </body>
 </html>

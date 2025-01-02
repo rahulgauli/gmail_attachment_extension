@@ -2,18 +2,15 @@
     "manifest_version": 3,
     "name": "Mail Attachments Cabinet",
     "version": "1.0",
-    "description": "A simple mail Chrome extension.",
+    "description": "Quick Download, View, Maintain, Attachments from your inbox",
     "permissions": [
       "scripting",
       "identity", "activeTab", 
       "storage", "notifications",
-      "identity.email",
-      "https://www.googleapis.com/"
+      "identity.email"
     ],
     "host_permissions": [
-    "https://mail.google.com/*",
-    "https://outlook.live.com/*",
-    "https://mail.yahoo.com/*"
+    "https://www.googleapis.com/*"
     ],
     "background": {
       "service_worker": "background.js"
@@ -28,17 +25,16 @@
     "content_scripts": [
     {
       "matches": [
-        "https://mail.google.com/*",
-        "https://outlook.live.com/*",
-        "https://mail.yahoo.com/*"
+        "https://mail.google.com/*"
       ],
       "js": ["scripts/content.js"]
     }
   ],
   "oauth2": {
-    "client_id": "235811497805-8qbddeqbnhbuslqsaelgeaka2j19fegn.apps.googleusercontent.com.apps.googleusercontent.com",
+    "client_id": "235811497805-8qbddeqbnhbuslqsaelgeaka2j19fegn",
     "scopes": [
-      "https://www.googleapis.com/auth/gmail.readonly"
+      "https://www.googleapis.com/auth/gmail.readonly",
+      "https://www.googleapis.com/auth/userinfo.email"
     ]
   }
 }
