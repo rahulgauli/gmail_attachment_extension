@@ -1,12 +1,15 @@
 if (window.location.hostname === "mail.google.com") {
   console.log("Content script running on Gmail.");  
   chrome.runtime.sendMessage({ type: "getAuthToken" }, (response) => {
-    if (response.error) {
-      console.error("Error retrieving token:", response.error);
+    if (response.token) {
+      chrome.runtime.sendMessage({ type: "getEmailData", token: response.token }, (emailResponse) => {
+        if (emailResponse.data) {
+          console.log("Emails:", emailResponse.data);
+        } else {
+          console.error("Error fetching emails:", emailResponse.error);
+        }
+      });
     } else {
-      console.log("OAuth Token:", response.token);
-      // Perform actions with the token (e.g., Gmail API calls)
+      console.error("Error retrieving token:", response.error);
     }
-  });
-}
-console.log(response);
+  });}
