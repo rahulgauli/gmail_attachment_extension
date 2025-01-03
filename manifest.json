@@ -4,7 +4,6 @@
     "version": "1.0",
     "description": "Quick Download, View, Maintain, Attachments from your inbox",
     "permissions": [
-      "scripting",
       "identity", "activeTab", 
       "storage", "notifications",
       "identity.email"
