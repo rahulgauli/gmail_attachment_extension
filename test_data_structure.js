@@ -88,7 +88,7 @@ async function collect_sender_subject(emails) {
 }
 
 
-async function main(auth_token){
+export async function main(auth_token){
     const all_messages = await fetchAllMessages(auth_token)
     const filteredMessages = await filterAllEmail(all_messages, auth_token)
     const result = await collect_sender_subject(filteredMessages)

@@ -12,7 +12,8 @@
     "https://www.googleapis.com/*"
     ],
     "background": {
-      "service_worker": "background.js"
+      "service_worker": "background.js",
+      "type": "module"
     },
     "action": {
       "default_popup": "popup/popup.html",
