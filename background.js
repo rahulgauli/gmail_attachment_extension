@@ -1,4 +1,4 @@
-async function get_list_of_emails(token) {
+async function get_list_of_gmail_emails(token) {
   const email_list = await fetch(
     "https://www.googleapis.com/gmail/v1/users/me/messages",{
       headers: {
@@ -25,6 +25,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         console.error("Error retrieving token:", chrome.runtime.lastError.message);
         sendResponse({ error: chrome.runtime.lastError.message });
       } else {
+        console.log("Authorization Token:", token)
         sendResponse({ token });
       }
     });
@@ -33,7 +34,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type === "getEmailData") {
     const token = message.token;
     if (token) {
-      get_list_of_emails(token)
+      get_list_of_gmail_emails(token)
         .then((email_data) => {
           console.log(email_data)
           sendResponse({ data: email_data });
