@@ -54,7 +54,8 @@ async function get_data_from_headers(headers, attachmentId){
         const response = {attahcmentId:attachmentId}
         for (const header of headers){
             if (header.name === "From"){
-                response.from = header.value
+                const output = header.value.replace(/<|>/g, "").replace(/\s</, ", ");
+                response.from = output
             }
             if (header.name === "Subject"){
                 response.subject = header.value

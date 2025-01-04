@@ -13,7 +13,7 @@ body {
     max-width: 400px; /* Reduce container width for small extension size */
     margin: 10px auto;
     padding: 15px;
-    background-color: #fff;
+    background-color: #f2c8fc;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;

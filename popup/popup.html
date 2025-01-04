@@ -4,11 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manage Attachments</title>
+  <style>
+    /* Add some basic styling */
+    body {
+      width: 350px;
+      height: 300px;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #7579d6;
+      font-family: Arial, sans-serif;
+    }
+
+    #email-data {
+      width: 90%;
+      max-width: 600px;
+      margin: 20px 0;
+      padding: 10px;
+      border: 1px solid #c81d1d;
+      border-radius: 5px;
+      background-color: #cdc33f;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+    }
+
+    .email-item {
+      border-bottom: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .email-item:last-child {
+      border-bottom: none;
+    }
+
+    .email-sender {
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .email-subject {
+      margin: 5px 0;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
   <div id="email-data">
+    <p>Emails With Attachments</p>
   </div>
-  <button id="authButton">Sign In To Gmail</button>
+  <!-- JavaScript File -->
   <script src="popup.js"></script>
 </body>
 </html>
