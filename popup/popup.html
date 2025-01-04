@@ -7,7 +7,7 @@
   <style>
     /* Add some basic styling */
     body {
-      width: 350px;
+      width: 300px;
       height: 300px;
       margin: 0;
       padding: 0;
@@ -17,16 +17,16 @@
       justify-content: center;
       background-color: #7579d6;
       font-family: Arial, sans-serif;
+      font-weight: bold;
     }
 
     #email-data {
-      width: 90%;
-      max-width: 600px;
-      margin: 20px 0;
+      width: 98%;  
+      height: 98%;  
       padding: 10px;
       border: 1px solid #c81d1d;
-      border-radius: 5px;
-      background-color: #cdc33f;
+      border-radius: 2px;
+      background-color: #dedbb7;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       overflow-y: auto;
     }
@@ -44,19 +44,34 @@
     .email-sender {
       font-weight: bold;
       margin: 0;
+      flex-grow: 1;
     }
 
     .email-subject {
       margin: 5px 0;
       color: #555;
+      flex-grow: 2;
     }
+
+    .download-button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .download-button:hover {
+      background-color: #45a049;
+    }
+
   </style>
 </head>
 <body>
   <div id="email-data">
-    <p>Emails With Attachments</p>
+    <p>Your Emails With Attachments</p>
   </div>
-  <!-- JavaScript File -->
   <script src="popup.js"></script>
 </body>
 </html>

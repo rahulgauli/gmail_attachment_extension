@@ -49,16 +49,25 @@ async function filterAllEmail(all_email_id, auth_token){
     return messagesDetails;
 };
 
+
 async function get_data_from_headers(headers, attachmentId){
     try{
+        console.log(headers)
         const response = {attahcmentId:attachmentId}
         for (const header of headers){
             if (header.name === "From"){
-                const output = header.value.replace(/<|>/g, "").replace(/\s</, ", ");
-                response.from = output
+                const data = header.value.replace(/<|>/g, "").replace(/\s</, ", ");
+                response.from = data
             }
             if (header.name === "Subject"){
                 response.subject = header.value
+            }
+            if (header.name === "Message-ID"){
+                response.messageID = header.value
+            }
+            if (header.name === "To"){
+                const emailMatch = header.value.match(/[\w.+-]+@[\w.-]+\.[\w.-]+/);
+                response.to = emailMatch[0]
             }
         }
         return response

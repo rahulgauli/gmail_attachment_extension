@@ -7,6 +7,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         console.error("Error retrieving token:", chrome.runtime.lastError.message);
         sendResponse({ error: chrome.runtime.lastError.message });
       } else {
+        console.log(`Take me to${token}`)
         main(token)
         .then((result) => {
           chrome.storage.local.set({ emailData: result}, () => {
