@@ -11,29 +11,31 @@ async function downloadAttachment(userId, messageId, attachmentId) {
         }
       });
     });
-
     const response = await fetch(url, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-
     if (!response.ok) {
       throw new Error("Failed to fetch attachment");
     }
-
     const data = await response.json();
-    
-    const fileData = atob(data.data); 
-    const blob = new Blob([new Uint8Array(fileData.split("").map(char => char.charCodeAt(0)))], { type: 'application/octet-stream' });
-    
+    if (!data.data) {
+      throw new Error("Attachment data not found");
+    }
+    let fileData = data.data.replace(/-/g, '+').replace(/_/g, '/');
+    const padding = fileData.length % 4;
+    if (padding) {
+      fileData += '='.repeat(4 - padding);
+    }
+    const decodedData = atob(fileData);
+    const blob = new Blob([new Uint8Array(decodedData.split("").map(char => char.charCodeAt(0)))], { type: 'application/octet-stream' });
     const downloadUrl = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = downloadUrl;
-    a.download = "attachment"; 
+    a.download = "attachment";  
     a.click();
-    
     URL.revokeObjectURL(downloadUrl);
   } catch (error) {
     console.error("Error downloading attachment:", error);
