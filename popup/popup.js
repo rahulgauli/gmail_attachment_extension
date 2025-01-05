@@ -44,9 +44,8 @@ async function downloadAttachment(userId, messageId, attachmentId) {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const videoContainer = document.getElementById("intro-video");
     const emailDataDiv = document.getElementById("email-data");
-    
+
     chrome.storage.local.get("emailData", (result) => {
       const email_data = result.emailData || [];
       email_data.forEach((email)=>{
@@ -74,5 +73,4 @@ document.addEventListener("DOMContentLoaded", () => {
       })
 
   })
-  loadingContainer.style.display = "none";
 })

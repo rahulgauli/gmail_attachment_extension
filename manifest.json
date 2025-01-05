@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Mail Attachments Cabinet",
+    "name": "Q-Ttachments",
     "version": "1.0",
     "description": "Quick Download, View, Maintain, Attachments from your inbox",
     "permissions": [
@@ -19,10 +19,10 @@
     },
     "action": {
       "default_popup": "popup/popup.html",
-      "default_icon": "images/icon-48.png"
+      "default_icon": "images/just_logo.png"
     },
     "icons": {
-    "48": "images/icon-48.png"
+    "48": "images/just_logo.png"
   },
     "content_scripts": [
     {
