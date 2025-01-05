@@ -20,6 +20,37 @@
       font-weight: bold;
     }
 
+    #intro-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #intro-video video {
+      width: 100%; /* Stretch to full width */
+      height: 100%; /* Stretch to full height */
+      object-fit: cover; /
+    }
+    .open-button {
+      position: absolute;
+      bottom: 20px;
+      padding: 10px 20px;
+      background-color: rgb(132, 174, 157);
+      color: white;
+      border: none;
+      border-radius: 2px;
+      cursor: not-allowed; /* Indicate the button is disabled */
+      font-size: 12px;
+      opacity: 0.7; /* Grayed-out look */
+    }
+
     #email-data {
       width: 98%;  
       height: 98%;  
@@ -69,6 +100,14 @@
   </style>
 </head>
 <body>
+  <!-- Video Container -->
+  <div id="intro-video">
+    <video autoplay muted loop>
+      <source src="optionB.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button class="open-button" disabled>open</button>
+  </div>
   <div id="email-data">
     <p>Your Emails With Attachments</p>
   </div>
