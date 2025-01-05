@@ -45,8 +45,17 @@ async function downloadAttachment(userId, messageId, attachmentId) {
 
 document.addEventListener("DOMContentLoaded", () => {
     const emailDataDiv = document.getElementById("email-data");
-
+    const waitingVideo = document.getElementById("intro-video");
+    const openButton = document.querySelector(".open-button");
+    
     chrome.storage.local.get("emailData", (result) => {
+      openButton.disabled = false;
+      openButton.style.backgroundColor = "#4CAF50";
+      openButton.style.cursor = "pointer";
+      openButton.style.opacity = "1";
+      openButton.addEventListener("click", ()=>{
+        waitingVideo.style.display = "none";
+      })
       const email_data = result.emailData || [];
       email_data.forEach((email)=>{
         const emailItem = document.createElement("div");
