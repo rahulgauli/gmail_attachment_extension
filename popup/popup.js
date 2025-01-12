@@ -85,6 +85,5 @@ document.addEventListener("DOMContentLoaded", () => {
           })
         }
       })
-
   })
 })
