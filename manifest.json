@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Q-Ttachments",
     "version": "1.0",
-    "description": "Quick Download, View, Maintain, Attachments from your inbox",
+    "description": "Quick Download, View and Organize Attachments from your inbox",
     "permissions": [
       "identity", 
       "storage", "notifications",
@@ -13,10 +13,6 @@
     "https://mail.google.com/*"
 
     ],
-    "background": {
-      "service_worker": "background.js",
-      "type": "module"
-    },
     "action": {
       "default_popup": "popup/popup.html",
       "default_icon": "images/just_logo.png"
@@ -24,14 +20,6 @@
     "icons": {
     "48": "images/just_logo.png"
   },
-    "content_scripts": [
-    {
-      "matches": [
-        "https://mail.google.com/*"
-      ],
-      "js": ["scripts/content.js"]
-    }
-  ],
   "oauth2": {
     "client_id": "235811497805-8qbddeqbnhbuslqsaelgeaka2j19fegn",
     "scopes": [
